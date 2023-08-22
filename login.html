@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./style.css">
+
+    <title>Document</title>
+</head>
+<body>
+  <div
+  id="loader"
+  style="
+    height: 100vh;
+    width: vh;
+    display: none;
+    justify-content: center;
+    align-items: center;
+  "
+>
+  <img
+    height="200px"
+    width="200px"
+    src="https://i.gifer.com/origin/d3/d3f472b06590a25cb4372ff289d81711_w200.gif"
+    alt=""
+  />
+</div>
+    <nav class="navbar  ">
+        <div class="container d-flex justify-content-between">
+          <a class="navbar-brand text-white" href="./index.html"><b>Personal Blogging App</b></a>
+          <a class="navbar-brand text-white" href="./signup.html">Signup</a>
+        </div>
+      </nav>
+      <div class=" shadow-sm border-bottom py-2">
+<h1 class="container"><b>Login</b></h1>
+      </div>
+      <div class="card_cont">
+        <div class="card  w-50 container d-flex justify-content-center pt-3 shadow-lg card_data" >
+          <div class="container p-md-5  p-sm-0 w-100 ">
+            <div class="d-flex flex-column align-items-center justify-content-center">
+        <form  class="w-75">
+
+
+     
+              
+                <div class="card-body ">
+                  <input type="email" class="form-control" placeholder="Email" aria-label="Email"  required id="Login_email">  
+                </div>
+                <div class="card-body ">
+                  <input type="password" class="form-control" placeholder="Password" aria-label="Password" pattern="^(?=.*[a-z])(?=.*[A-Z]).{8,}$"
+                  title="Password must be 8 characters long and include both uppercase and lowercase letters"
+                  required id="Login_password"  >
+                </div>
+              
+              
+                 <div class="card-bodyw-75 mb-3 d-flex justify-content-center">
+                  <input type="submit" value="Login" class="btn rounded text-white" id="Login_btn">
+              </div>
+
+
+            </form>
+            </div>
+    
+          </div>
+        </div>
+         
+      </div>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./login.js" type="module"></script>
+</body>
+</html>

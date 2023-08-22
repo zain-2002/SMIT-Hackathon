@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div
+    id="loader"
+    style="
+      height: 100vh;
+      width: vh;
+      display: none;
+      justify-content: center;
+      align-items: center;
+    "
+  >
+    <img
+      height="200px"
+      width="200px"
+      src="https://i.gifer.com/origin/d3/d3f472b06590a25cb4372ff289d81711_w200.gif"
+      alt=""
+    />
+  </div>
+  <nav class="navbar  ">
+    <div class="container d-flex justify-content-between">
+      <a class="navbar-brand text-white" href="./index.html"><b>Personal Blogging App</b></a>
+      <div class="d-flex">
+
+
+        <a class="navbar-brand text-white mr-2" href="./profile.html" id="User_Name_Space"></a>
+        <a class="navbar-brand text-white " href="./index.html" id="logout_user">Logout</a>
+
+      </div>
+   
+  
+
+    </div>
+  </nav>
+  <div class=" shadow-sm border-bottom py-2">
+<h1 class="container"><b>Profile</b></h1>
+
+  </div>
+   <div class="container my-3 card  profileCont pb-1">
+  
+
+    <div class="w-50 p-5 profileDataCont" >
+      <div class="w-75 position-relative" id="profileimg_cont">
+        <img src="" class="rounded w-75 " alt="..." id="Profile_Img">
+        <i class="fa-solid fa-pen" id="uploadIcon"></i>
+        
+      </div>
+
+
+     
+        <div class="card-body px-0">
+          <div class="d-flex  gap-2  ">
+            <h5 class="card-title" id="Username"></h5>
+            <i class="fa-solid fa-pen-clip" id="Update_Name"></i>
+          </div>
+            
+            <div  id="Name_Cont" style="display: none;">
+              <input type="text" class="form-control " placeholder="First name" aria-label="First name" minlength="3" maxlength="20" required id="Profile_FirstName">
+              <input type="text" class="form-control mt-2" placeholder="Last name" aria-label="Last name" minlength="1" maxlength="20" required id="Profile_LastName">
+              <input type="submit" value="Save" class="btn rounded text-white my-2" id="SaveUpdate_btn">
+            </div>
+            <h5 class="card-title" >Password</h5>
+
+          <div class="card-body px-0 d-flex justify-content-center">
+            <input type="password" class="form-control" placeholder="Old Password" aria-label="Password" pattern="^(?=.*[a-z])(?=.*[A-Z]).{8,}$"
+            title="Password must be 8 characters long and include both uppercase and lowercase letters"
+             id="Profile_OldPassword">
+          </div>
+          <div class="card-body px-0 d-flex justify-content-center">
+            <input type="password" class="form-control" placeholder="New Password" aria-label="Password" pattern="^(?=.*[a-z])(?=.*[A-Z]).{8,}$"
+            title="Password must be 8 characters long and include both uppercase and lowercase letters"
+             id="Profile_NewPassword">
+          </div>
+          <div class="card-body px-0  d-flex justify-content-center">
+            <input type="password" class="form-control" placeholder="Repeat Password" aria-label="Repeat Password" pattern="^(?=.*[a-z])(?=.*[A-Z]).{8,}$"
+            title="Password must be 8 characters long and include both uppercase and lowercase letters"
+             id="Profile_RepeatPassword">
+          </div>
+          <input type="file" id="fileInput" style="display: none" accept=".svg, .jpg, .jpeg">
+          <div class="card-body px-0 ">
+            <input type="submit" value="Update" class="btn rounded text-white mx-2" id="Profile_btn">
+          </div>
+
+
+        </div>
+      </div>
+
+
+
+
+
+
+   </div>
+
+
+   <script src="https://kit.fontawesome.com/0168668853.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./profile.js" type="module"></script>
+</body>
+</html>
