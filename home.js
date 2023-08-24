@@ -32,7 +32,17 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.2.0/firebas
   const published_blogs=document.getElementById('published_blogs')
   const blogs_Cont=document.getElementById('blogs_cont')
   const loader=document.getElementById('loader')
+  const content=document.getElementById('content')
   let userid=null
+
+  window.addEventListener('load', () => {
+    loader.style.display = 'flex';
+  
+    setTimeout(() => {
+      loader.style.display = 'none'; 
+      content.style.display='block'
+    }, 4000);
+  });
 
   onAuthStateChanged(auth, (user) => {
     if (user) {
@@ -47,6 +57,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.2.0/firebas
       logout_user.style.display='block'
       Blogs_info.innerText='My Blogs'
       User_Name_Space.style.display='block'
+     
       // loader.style.display='flex'
     getUsername();  
     getMyBlogs(uid);
@@ -85,7 +96,7 @@ async function getMyBlogs(uid){
       //console.log(doc.id, " => ", doc.data());
 blogsdata.push(doc.data())
      const blogDiv=`
-     <div class=" w-75 my-4 card p-4 shadow">
+     <div class=" my-4 card p-4 shadow">
       
      <div class="row g-0 mb-3">
        <div class="col-md-3 d-flex justify-content-center align-items-center" style="height:118px !important ">
@@ -139,8 +150,10 @@ blogsdata.push(doc.data())
       
       // doc.data() is never undefined for query doc snapshots
       //console.log(doc.id, " => ", doc.data());
+      
      const blogDiv=`
-     <div class=" w-75 my-4 card p-4 shadow">
+
+     <div class="my-4 card p-4 shadow">
       
      <div class="row g-0 mb-3">
        <div class="col-md-3 d-flex justify-content-center align-items-center" style="height:118px !important">
@@ -175,7 +188,8 @@ blogsdata.push(doc.data())
 
 
 async function deleteUserBlogs() {
-
+  loader.style.display='flex'
+  content.style.display='none'
   const swalWithBootstrapButtons = Swal.mixin({
     customClass: {
         confirmButton: "btn btn-success",
@@ -197,10 +211,13 @@ swalWithBootstrapButtons.fire({
         swalWithBootstrapButtons.fire("Deleted!", "Your changes are applied", "success");
         const documentRef = doc(db,'usersblogs',this.id);
         deleteDoc(documentRef).then(()=>{
+         
           location.reload();
         })
     } else if (result.dismiss === Swal.DismissReason.cancel) {
         swalWithBootstrapButtons.fire("Cancelled", "Your changes are rejeccted!", "error");
+        loader.style.display='none'
+        content.style.display='block'
     };  
 });
 
@@ -214,11 +231,7 @@ function editUserBlogs() {
 
   const uid=this.id.split('_')
 
-  // console.log( typeof +this.id);
-  
-  // blog_title.value='zain'
 blogsdata.forEach((val)=>{
-//  console.log(typeof val.publishdate);
   if (val.publishdate=== +uid[1]) {
     blog_title.value=val.title;
     blog_text.value=val.blog;
@@ -238,11 +251,14 @@ edit_Blog_Btn.addEventListener('click',SaveEditedBlog)
 
 function SaveEditedBlog(e) {
 e.preventDefault();
+loader.style.display='flex'
+content.style.display='none'
   const documentRef = doc(db,'usersblogs',this.id);
   updateDoc(documentRef,{
     title:blog_title.value,
     blog:blog_text.value
   }).then(()=>{
+
     location.reload();
   })
   Swal.fire({
@@ -263,7 +279,7 @@ async function getAllBlogs(){
   // doc.data() is never undefined for query doc snapshots
 
   const blogDiv=`
-  <div class=" w-75 my-4 card p-4 shadow">
+  <div class="my-4 card p-4 shadow">
    
   <div class="row g-0 mb-3">
     <div class="col-md-3 d-flex justify-content-center align-items-center" style="height:118px !important ">
@@ -298,7 +314,13 @@ setTimeout(()=>{
 }
 
 async function ShowAllBlogsOfSelected (){
+  loader.style.display='flex'
+  content.style.display='none'
+  setTimeout(()=>{
+    loader.style.display='none' 
+  content.style.display='block'
 
+  },2000)
   greetings.innerText="< Back to all blogs"
   greetings.style.color='#7749F8';
   greetings.style.cursor='pointer'
@@ -336,8 +358,12 @@ async function getUsername() {
 publish_blogs.addEventListener('click',publishUserBlog)
 
 async function publishUserBlog(e) {
+
+
+
+
   e.preventDefault();
-if (blog_title.value==null || blog_text.value==null) {
+if (!blog_title.value || !blog_text.value) {
   
   Swal.fire({
         
@@ -349,7 +375,9 @@ if (blog_title.value==null || blog_text.value==null) {
 }
 else{
 
-  
+
+  loader.style.display='flex'
+  content.style.display='none'
   const docRef = doc(db, "users", userid);
   const docSnap = await getDoc(docRef);
   
@@ -375,13 +403,6 @@ else{
 }
 
 }
-
-
-
-
-
-
-
 
 
 
