@@ -27,37 +27,66 @@ const password = document.getElementById('Signup_Password');
 const confirmpass = document.getElementById('Signup_RepeatPassword');
 const Signup_Img = document.getElementById('Signup_Img');
 const loader=document.getElementById('loader')
-
+const content=document.getElementById('content')
 Signup_btn.addEventListener('click', Signup_User);
+const myForm = document.getElementById('myForm'); 
+
+
+
+
 
 async function Signup_User(e) {
-  if (password.value !== confirmpass.value) {
-    Swal.fire({
-      icon: 'error',
-      title: `Password is not Matching!!`,
-      showConfirmButton: false,
-      timer: 1000
-    });
-    confirmpass.value = null;
+  if (!myForm.checkValidity()) {
+    e.preventDefault(); 
+    myForm.reportValidity(); 
   } else {
-    e.preventDefault();
-    try {
-      loader.style.display='flex'
-      const userCredential = await createUserWithEmailAndPassword(auth, Signup_Email.value, password.value);
-      const user = userCredential.user;
-      const img_Url = await GetImgUrl(user);
-      await StoreUserData(user, img_Url);
-      window.location.href = "index.html";
-    } catch (error) { 
-      console.log(error.message);
-      Swal.fire({
+    
+    
+      if (password.value !== confirmpass.value) {
+        Swal.fire({
+          icon: 'error',
+          title: `Password is not Matching!!`,
+          showConfirmButton: false,
+          timer: 1000
+        });
+        confirmpass.value = null;
+      } else {
         
-        icon: 'error',
-        title: `${error.message}!!`,
-        showConfirmButton: false,
-            timer: 1000
-          });
-    }
+        if (Signup_Email.value && Signup_FirstName.value && Signup_LastName.value && password.value && confirmpass.value && Signup_Img.value) {
+          e.preventDefault();
+          try {
+            loader.style.display='flex'
+            content.style.display='none'
+            const userCredential = await createUserWithEmailAndPassword(auth, Signup_Email.value, password.value);
+            const user = userCredential.user;
+            const img_Url = await GetImgUrl(user);
+            await StoreUserData(user, img_Url);
+            window.location.href = "index.html";
+          } catch (error) { 
+            console.log(error.message);
+            Swal.fire({
+              
+              icon: 'error',
+              title: `${error.message}!!`,
+              showConfirmButton: false,
+                  timer: 1000
+                });
+            loader.style.display='none'
+            content.style.display='block'
+      
+          }
+       
+        }
+        else{
+          Swal.fire({
+              
+            icon: 'error',
+            title: `Fill The Form First!!`,
+            showConfirmButton: false,
+                timer: 1000
+              });
+        }
+      }
   }
 }
 

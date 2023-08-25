@@ -15,6 +15,10 @@
         width: 75% !important;
     }
 }
+
+.blogData{
+    padding-left: 10px !important;
+}
 .blog_written{
     min-height: 150px !important;
 
@@ -68,6 +72,14 @@
 }
 #User_Name_Space{
     text-transform: capitalize;
+}
+.imgContainer{
+    height: 140px !important;
+}
+@media screen and (max-width:767px){
+.imgContainer{
+    height: 200px !important;
+}
 }
 @media screen and (max-width:1008px){
    

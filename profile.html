@@ -66,9 +66,11 @@
             </div>
               
               <div  id="Name_Cont" style="display: none;">
-                <input type="text" class="form-control " placeholder="First name" aria-label="First name" minlength="3" maxlength="20" required id="Profile_FirstName">
-                <input type="text" class="form-control mt-2" placeholder="Last name" aria-label="Last name" minlength="1" maxlength="20" required id="Profile_LastName">
-                <input type="submit" value="Save" class="btn rounded text-white my-2" id="SaveUpdate_btn">
+                <form id="nameForm">
+                  <input type="text" class="form-control " placeholder="First name" aria-label="First name" minlength="3" maxlength="20" required id="Profile_FirstName">
+                  <input type="text" class="form-control mt-2" placeholder="Last name" aria-label="Last name" minlength="1" maxlength="20" required id="Profile_LastName">
+                  <input type="submit" value="Save" class="btn rounded text-white my-2" id="SaveUpdate_btn">
+                </form>
               </div>
               <h5 class="card-title" >Password</h5>
   
@@ -77,20 +79,23 @@
               title="Password must be 8 characters long and include both uppercase and lowercase letters"
                id="Profile_OldPassword">
             </div>
-            <div class="card-body px-0 d-flex justify-content-center">
-              <input type="password" class="form-control" placeholder="New Password" aria-label="Password" pattern="^(?=.*[a-z])(?=.*[A-Z]).{8,}$"
-              title="Password must be 8 characters long and include both uppercase and lowercase letters"
-               id="Profile_NewPassword">
-            </div>
-            <div class="card-body px-0  d-flex justify-content-center">
-              <input type="password" class="form-control" placeholder="Repeat Password" aria-label="Repeat Password" pattern="^(?=.*[a-z])(?=.*[A-Z]).{8,}$"
-              title="Password must be 8 characters long and include both uppercase and lowercase letters"
-               id="Profile_RepeatPassword">
-            </div>
-            <input type="file" id="fileInput" style="display: none" accept=".svg, .jpg, .jpeg">
-            <div class="card-body px-0 ">
-              <input type="submit" value="Update" class="btn rounded text-white mx-2" id="Profile_btn">
-            </div>
+            <form id="PasswordForm">
+
+              <div class="card-body px-0 d-flex justify-content-center">
+                <input type="password" class="form-control" placeholder="New Password" aria-label="Password" pattern="^(?=.*[a-z])(?=.*[A-Z]).{8,}$"
+                title="Password must be 8 characters long and include both uppercase and lowercase letters"
+                id="Profile_NewPassword">
+              </div>
+              <div class="card-body px-0  d-flex justify-content-center">
+                <input type="password" class="form-control" placeholder="Repeat Password" aria-label="Repeat Password" pattern="^(?=.*[a-z])(?=.*[A-Z]).{8,}$"
+                title="Password must be 8 characters long and include both uppercase and lowercase letters"
+                id="Profile_RepeatPassword">
+              </div>
+              <input type="file" id="fileInput" style="display: none" accept=".svg, .jpg, .jpeg">
+              <div class="card-body px-0 ">
+                <input type="submit" value="Update" class="btn rounded text-white mx-2" id="Profile_btn">
+              </div>
+            </form>
   
   
           </div>

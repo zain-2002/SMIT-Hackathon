@@ -99,8 +99,8 @@ blogsdata.push(doc.data())
      <div class=" my-4 card p-4 shadow">
       
      <div class="row g-0 mb-3">
-       <div class="col-md-3 d-flex justify-content-center align-items-center" style="height:118px !important ">
-         <img src="${doc.data().img}" class="img-fluid rounded h-100 w-75" alt="img">
+       <div class="col-md-3 p-2 imgContainer " >
+         <img src="${doc.data().img}" class="img-fluid rounded h-100 w-75" alt="img" style="width:85% !important ">
        </div>
        <div class="col-md-9">
          <div class="card-body">
@@ -112,7 +112,7 @@ blogsdata.push(doc.data())
   
   </div>
    
-  <p class="px-4">${doc.data().blog}</p>
+  <p class="blogData">${doc.data().blog}</p>
   <div class="px-4">
   <a class="navbar-brand text-dark blog_Btns" href="#" id="${doc.id}_${doc.data().publishdate}" >Edit</a>
   <a class="navbar-brand text-dark mx-2 blog_Btns" href="#" id="${doc.id}">Delete</a>
@@ -156,8 +156,8 @@ blogsdata.push(doc.data())
      <div class="my-4 card p-4 shadow">
       
      <div class="row g-0 mb-3">
-       <div class="col-md-3 d-flex justify-content-center align-items-center" style="height:118px !important">
-         <img src="${doc.data().img}" class="img-fluid rounded h-100 w-75" alt="img">
+       <div class="col-md-3 p-2 imgContainer">
+         <img src="${doc.data().img}" class="img-fluid rounded h-100 w-75" alt="img" style="width:85% !important ">
        </div>
        <div class="col-md-9">
          <div class="card-body">
@@ -169,7 +169,7 @@ blogsdata.push(doc.data())
   
   </div>
    
-  <p class="px-4">${doc.data().blog}</p>
+  <p class="blogData">${doc.data().blog}</p>
 
   </div>
    `
@@ -282,8 +282,8 @@ async function getAllBlogs(){
   <div class="my-4 card p-4 shadow">
    
   <div class="row g-0 mb-3">
-    <div class="col-md-3 d-flex justify-content-center align-items-center" style="height:118px !important ">
-      <img src="${doc.data().img}" class="img-fluid rounded h-100 w-75" alt="img">
+    <div class="col-md-3 p-2 imgContainer">
+      <img src="${doc.data().img}" class="img-fluid rounded h-100 w-75" alt="img" style="width:85% !important ">
     </div>
     <div class="col-md-9">
       <div class="card-body">
@@ -295,9 +295,9 @@ async function getAllBlogs(){
 
 </div>
 
-<p class="px-4">${doc.data().blog}</p>
-<div class="px-4">
-<a class="navbar-brand text-dark blog_Btns" href="#" id="${doc.id}_${doc.data().uid}">See all from this user.</a>
+<p class="blogData">${doc.data().blog}</p>
+<div class="blogData" >
+<a class="navbar-brand text-dark blog_Btns text-wrap" href="#" id="${doc.id}_${doc.data().uid}">See all from this user.</a>
 
 </div>
 
@@ -410,6 +410,13 @@ else{
 logout_user.addEventListener('click',Logout_User);
 
   function Logout_User(){
+    loader.style.display='flex'
+    content.style.display='none'
+    setTimeout(()=>{
+      loader.style.display='none'
+    content.style.display='block'
+
+    },1400)
     signOut(auth).then(() => {
         // Sign-out successful.
         console.log("signout");
