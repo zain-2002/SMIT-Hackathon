@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <link rel="stylesheet" href="./style.css">
 
     <title>Document</title>
@@ -48,10 +50,18 @@
                   <input type="email" class="form-control" placeholder="Email" aria-label="Email"  required id="Login_email">  
                 </div>
                 <div class="card-body ">
-                  <input type="password" class="form-control" placeholder="Password" aria-label="Password" pattern="^(?=.*[a-z])(?=.*[A-Z]).{8,}$"
-                  title="Password must be 8 characters long and include both uppercase and lowercase letters"
-                  required id="Login_password"  >
+                  <div class="input-group">
+                    <input type="password" class="form-control"  placeholder="Password" pattern="^(?=.*[a-z])(?=.*[A-Z]).{8,}$"
+                    title="Password must be 8 characters long and include both uppercase and lowercase letters"
+                    required id="Login_password">
+                    <span class="input-group-text d-flex justify-content-center align-items-center p-2 rounded-right-top">
+                        <i class="bi bi-eye-slash toggle-password icon-eye" style="font-size: 16px ;"></i>
+                    </span>
                 </div>
+                
+                
+              
+              </div>
               
               
                  <div class="card-bodyw-75 mb-3 d-flex justify-content-center">
@@ -66,6 +76,7 @@
         </div>
          
       </div>
+   <script src="https://kit.fontawesome.com/0168668853.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

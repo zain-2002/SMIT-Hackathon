@@ -29,6 +29,18 @@ const Login_btn=document.getElementById('Login_btn');
 const loader=document.getElementById('loader')
 Login_btn.addEventListener('click',Login_User);
 
+$(document).ready(function() {
+  $('.toggle-password').on('click', function() {
+      var input = $(this).closest('.input-group').find('input');
+      if (input.attr('type') === 'password') {
+          input.attr('type', 'text');
+      } else {
+          input.attr('type', 'password');
+      }
+      $(this).toggleClass('bi-eye-slash bi-eye');
+  });
+});
+
 
 function Login_User(e){
  e.preventDefault();

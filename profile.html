@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="./style.css">
     <title>Document</title>
@@ -75,21 +77,45 @@
               <h5 class="card-title" >Password</h5>
   
             <div class="card-body px-0 d-flex justify-content-center">
-              <input type="password" class="form-control" placeholder="Old Password" aria-label="Password" pattern="^(?=.*[a-z])(?=.*[A-Z]).{8,}$"
-              title="Password must be 8 characters long and include both uppercase and lowercase letters"
-               id="Profile_OldPassword">
+             
+               <div class="input-group">
+                <input type="password" class="form-control"  placeholder="Old Password" pattern="^(?=.*[a-z])(?=.*[A-Z]).{8,}$"
+                title="Password must be 8 characters long and include both uppercase and lowercase letters"
+                required  id="Profile_OldPassword">
+                <span class="input-group-text d-flex justify-content-center align-items-center p-2 rounded-right-top">
+                    <i class="bi bi-eye-slash toggle-password icon-eye" style="font-size: 16px ;"></i>
+                </span>
+            </div>
+
+
             </div>
             <form id="PasswordForm">
 
               <div class="card-body px-0 d-flex justify-content-center">
-                <input type="password" class="form-control" placeholder="New Password" aria-label="Password" pattern="^(?=.*[a-z])(?=.*[A-Z]).{8,}$"
-                title="Password must be 8 characters long and include both uppercase and lowercase letters"
-                id="Profile_NewPassword">
+            
+
+                <div class="input-group">
+                  <input type="password" class="form-control"  placeholder="New Password" pattern="^(?=.*[a-z])(?=.*[A-Z]).{8,}$"
+                  title="Password must be 8 characters long and include both uppercase and lowercase letters"
+                  required   id="Profile_NewPassword">
+                  <span class="input-group-text d-flex justify-content-center align-items-center p-2 rounded-right-top">
+                      <i class="bi bi-eye-slash toggle-password icon-eye" style="font-size: 16px ;"></i>
+                  </span>
+              </div>
+
+
               </div>
               <div class="card-body px-0  d-flex justify-content-center">
-                <input type="password" class="form-control" placeholder="Repeat Password" aria-label="Repeat Password" pattern="^(?=.*[a-z])(?=.*[A-Z]).{8,}$"
-                title="Password must be 8 characters long and include both uppercase and lowercase letters"
-                id="Profile_RepeatPassword">
+             
+
+                <div class="input-group">
+                  <input type="password" class="form-control"  placeholder="Repeat Password" pattern="^(?=.*[a-z])(?=.*[A-Z]).{8,}$"
+                  title="Password must be 8 characters long and include both uppercase and lowercase letters"
+                  required   id="Profile_RepeatPassword">
+                  <span class="input-group-text d-flex justify-content-center align-items-center p-2 rounded-right-top">
+                      <i class="bi bi-eye-slash toggle-password icon-eye" style="font-size: 16px ;"></i>
+                  </span>
+                </div>  
               </div>
               <input type="file" id="fileInput" style="display: none" accept=".svg, .jpg, .jpeg">
               <div class="card-body px-0 ">

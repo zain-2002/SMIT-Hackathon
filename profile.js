@@ -17,7 +17,17 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.2.0/firebas
     appId: "1:636598514109:web:d834cb87ecc479fdeba2d4",
     measurementId: "G-N4LDDRXL17"
   };
-  
+  $(document).ready(function() {
+    $('.toggle-password').on('click', function() {
+        var input = $(this).closest('.input-group').find('input');
+        if (input.attr('type') === 'password') {
+            input.attr('type', 'text');
+        } else {
+            input.attr('type', 'password');
+        }
+        $(this).toggleClass('bi-eye-slash bi-eye');
+    });
+  });
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);

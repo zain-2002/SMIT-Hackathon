@@ -31,7 +31,17 @@ const content=document.getElementById('content')
 Signup_btn.addEventListener('click', Signup_User);
 const myForm = document.getElementById('myForm'); 
 
-
+$(document).ready(function() {
+  $('.toggle-password').on('click', function() {
+      var input = $(this).closest('.input-group').find('input');
+      if (input.attr('type') === 'password') {
+          input.attr('type', 'text');
+      } else {
+          input.attr('type', 'password');
+      }
+      $(this).toggleClass('bi-eye-slash bi-eye');
+  });
+});
 
 
 
