@@ -316,6 +316,8 @@ setTimeout(()=>{
 async function ShowAllBlogsOfSelected (){
   loader.style.display='flex'
   content.style.display='none'
+  const uid=this.id.split('_')
+  getMyBlogs(uid[1])
   setTimeout(()=>{
     loader.style.display='none' 
   content.style.display='block'
@@ -327,8 +329,6 @@ async function ShowAllBlogsOfSelected (){
   greetings.addEventListener('click',()=>{
     location.reload();
   })
-const uid=this.id.split('_')
-getMyBlogs(uid[1])
 const docRef = doc(db, "users", uid[1]);
 const docSnap = await getDoc(docRef);
 
@@ -412,13 +412,10 @@ logout_user.addEventListener('click',Logout_User);
   function Logout_User(){
     loader.style.display='flex'
     content.style.display='none'
-    setTimeout(()=>{
-      loader.style.display='none'
-    content.style.display='block'
 
-    },1400)
     signOut(auth).then(() => {
         // Sign-out successful.
+        location.reload();
         console.log("signout");
       }).catch((error) => {
         // An error happened.
