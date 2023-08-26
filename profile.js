@@ -214,7 +214,7 @@ if (Profile_NewPassword.value) {
   
   if (Profile_OldPassword.value===Profile_NewPassword.value) {
   
-    setTimeout(()=>{
+
   
       Swal.fire({
           
@@ -224,22 +224,21 @@ if (Profile_NewPassword.value) {
               timer: 1400
             });
   
-  
-            Profile_NewPassword.value=null
-            Profile_RepeatPassword.value=null
-            
-            loader.style.display='none'
-            content.style.display='block'
-            return
-    },800)
+
+          
+          Profile_NewPassword.value=null
+          Profile_RepeatPassword.value=null
+          
+          loader.style.display='none'
+          content.style.display='block'
+          return
       
   }
-}
+  
+  if (Profile_NewPassword.value!==Profile_RepeatPassword.value) {
 
-if (Profile_RepeatPassword.value) {
-  setTimeout(()=>{
 
-    if (Profile_NewPassword.value!==Profile_RepeatPassword.value) {
+  
       Swal.fire({
           
           icon: 'error',
@@ -247,15 +246,15 @@ if (Profile_RepeatPassword.value) {
           showConfirmButton: false,
               timer: 1400
             });
-            Profile_RepeatPassword.value=null
+           
+
+        Profile_RepeatPassword.value=null
             
-            loader.style.display='none'
-            content.style.display='block'
-            return
-      
-  }
-  },800)
-  password=Profile_RepeatPassword.value
+        loader.style.display='none'
+        content.style.display='block'
+        return
+      }
+      password=Profile_RepeatPassword.value
 }
 
 if (newimg) {
